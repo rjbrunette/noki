@@ -12,10 +12,15 @@ type Reminder struct {
 	Type string
 }
 
+func (Reminder r) String() string {
+	return r.Date + " " + r.Type
+}
+
 func remindersGetHandler(w http.ResponseWriter, r *http.Request) { 
     fmt.Println("Inside handler")
     fmt.Fprintf(w, "Hello world from my Go program!")
 }
+
 func remindersPostHandler(w http.ResponseWriter, r *http.Request) { 
     decoder := json.NewDecoder(r.Body)
     var t Reminder
