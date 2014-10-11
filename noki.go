@@ -13,7 +13,9 @@ func remindersHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-    r.HandleFunc("/", remindersHandler)
+    r.HandleFunc("/", remindersHandler).
+    	Methods("GET")
+    	
     r.HandleFunc("/products", remindersHandler)
     r.HandleFunc("/articles", remindersHandler)
     http.Handle("/", r)
