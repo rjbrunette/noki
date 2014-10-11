@@ -11,6 +11,7 @@ func remindersHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	 http.HandleFunc("/", remindersHandler)
     http.HandleFunc("/reminders", remindersHandler) // redirect all urls to the handler function
-    http.ListenAndServe("localhost:9000", nil) // listen for connections at port 9999 on the local machine
+    http.ListenAndServe("localhost:9999", nil) // listen for connections at port 9999 on the local machine
 }
