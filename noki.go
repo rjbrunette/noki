@@ -17,4 +17,5 @@ func main() {
     r.HandleFunc("/products", remindersHandler)
     r.HandleFunc("/articles", remindersHandler)
     http.Handle("/", r)
+    http.ListenAndServe("localhost:9000", nil)
 }
