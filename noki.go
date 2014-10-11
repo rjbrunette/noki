@@ -12,7 +12,7 @@ type Reminder struct {
 	Type string
 }
 
-func (Reminder r) String() string {
+func (r Reminder) String() string {
 	return r.Date + " " + r.Type
 }
 
