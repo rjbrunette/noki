@@ -3,6 +3,7 @@ package main
 import (
     "net/http" //package for http based web programs
     "fmt"
+    "github.com/gorilla/mux"
 )
 
 func remindersHandler(w http.ResponseWriter, r *http.Request) { 
@@ -11,7 +12,9 @@ func remindersHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	 http.HandleFunc("/", remindersHandler)
-    http.HandleFunc("/reminders", remindersHandler) // redirect all urls to the handler function
-    http.ListenAndServe("localhost:9999", nil) // listen for connections at port 9999 on the local machine
+	r := mux.NewRouter()
+    r.HandleFunc("/", remindersHandler)
+    r.HandleFunc("/products", remindersHandler)
+    r.HandleFunc("/articles", remindersHandler)
+    http.Handle("/", r)
 }
