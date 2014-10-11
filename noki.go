@@ -21,7 +21,7 @@ func remindersPostHandler(w http.ResponseWriter, r *http.Request) {
     var r Reminder
     err := decoder.Decode(&r)
     if err != nil {
-        panic()
+        panic(err)
     }   
     fmt.Println(r)
     fmt.Fprintf(w, "Hello world from my Go program!")
