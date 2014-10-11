@@ -18,12 +18,12 @@ func remindersGetHandler(w http.ResponseWriter, r *http.Request) {
 }
 func remindersPostHandler(w http.ResponseWriter, r *http.Request) { 
     decoder := json.NewDecoder(r.Body)
-    var r Reminder
-    err := decoder.Decode(&r)
+    var t Reminder
+    err := decoder.Decode(&t)
     if err != nil {
         panic(err)
     }   
-    fmt.Println(r)
+    fmt.Println(t)
     fmt.Fprintf(w, "Hello world from my Go program!")
 }
 
